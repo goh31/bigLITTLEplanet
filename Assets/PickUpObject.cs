@@ -18,22 +18,18 @@ public class PickUpObject : MonoBehaviour {
 			carry (carriedObject);
 		} else {
 			//if not, maybe we want to pickup some object
-			pickup();
+			pickUp();
 		}
 	}
 
-	void carry(GameObject object) {
+	void carry(GameObject obj) {
 		
 	}
 
 	void pickUp() {
 		//if I press my "E" key, shoot the ray
 		if (Input.GetKeyDown (KeyCode.E)) {
-			//Determine middle of screen
-			int x = Screen.width / 2;
-			int y = Screen.height / 2;
-
-			Ray ray = Camera.main.ScreenPointToRay (new Vector3 (x, y));
+			Ray ray = Camera.main.ScreenPointToRay (Vector3.forward);
 
 			RaycastHit raycastHit;
 			if(Physics.Raycast(ray, out raycastHit)) {
