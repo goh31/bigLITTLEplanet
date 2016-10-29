@@ -18,14 +18,28 @@ using System.Collections;
 [RequireComponent(typeof(Collider))]
 public class Teleport : MonoBehaviour, IGvrGazeResponder {
   private Vector3 startingPosition;
+	private bool isSelected = false;
+	public GameObject MainPlayer;
+	public float dist;
 
   void Start() {
     startingPosition = transform.localPosition;
     SetGazedAt(false);
+		GameObject.Find("Main Camera");
   }
 
+	void Update(){
+		Debug.Log (dist);
+		if (isSelected) {
+			Ray r = new Ray(MainPlayer.transform.position, MainPlayer.transform.rotation * Vector3.forward);
+			Vector3 rayPt = r.GetPoint(dist);
+			transform.position = rayPt;	
+		}
+			
+	}
+
   void LateUpdate() {
-    GvrViewer.Instance.UpdateState();
+	GvrViewer.Instance.UpdateState();
     if (GvrViewer.Instance.BackButtonPressed) {
       Application.Quit();
     }
@@ -77,8 +91,12 @@ public class Teleport : MonoBehaviour, IGvrGazeResponder {
 
   /// Called when the viewer's trigger is used, between OnGazeEnter and OnGazeExit.
   public void OnGazeTrigger() {
-    TeleportRandomly();
+		Debug.Log ("hello");
+		isSelected = !isSelected;
+		dist = Vector3.Distance (transform.position, MainPlayer.transform.position);
+		Debug.Log (isSelected);
   }
+		
 
   #endregion
 }

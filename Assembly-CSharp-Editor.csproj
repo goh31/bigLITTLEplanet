@@ -48,7 +48,6 @@
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <Compile Include="Assets\GoogleVR\Editor\DemoScenes\ControllerDemo\ControllerDebugInfo.cs" />
      <Compile Include="Assets\GoogleVR\Editor\DemoScenes\ControllerDemo\ControllerDemoManager.cs" />
-     <Compile Include="Assets\GoogleVR\Editor\DemoScenes\HeadsetDemo\Teleport.cs" />
      <Compile Include="Assets\GoogleVR\Editor\GvrAudioListenerEditor.cs" />
      <Compile Include="Assets\GoogleVR\Editor\GvrAudioRoomEditor.cs" />
      <Compile Include="Assets\GoogleVR\Editor\GvrAudioSoundfieldEditor.cs" />
@@ -109,6 +108,8 @@
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{7A5E8331-CAF4-EE05-1B66-91AA6CD73F39}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{B553B55E-1A83-8A2F-CCC8-D9F9A04D7F90}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

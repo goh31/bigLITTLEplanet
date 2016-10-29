@@ -87,9 +87,10 @@
      <Compile Include="Assets\GoogleVR\Scripts\UI\IGvrGazeResponder.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrFPS.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrIntent.cs" />
-     <Compile Include="Assets\Movement.cs" />
-     <Compile Include="Assets\PickUpObject.cs" />
-     <Compile Include="Assets\Pickable.cs" />
+     <Compile Include="Assets\Old\Movement.cs" />
+     <Compile Include="Assets\Old\PickUpObject.cs" />
+     <Compile Include="Assets\Old\Pickable.cs" />
+     <Compile Include="Assets\Teleport.cs" />
      <None Include="Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
