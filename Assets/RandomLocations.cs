@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class RandomLocations : MonoBehaviour {
-	public Vector3 positions;
+	public Vector3[] positions;
 	// Use this for initialization
 	void Start () {
 		int random = Random.Range (0, positions.Length);
