@@ -30,13 +30,14 @@ public class Teleport : MonoBehaviour, IGvrGazeResponder {
   }
 
 	void Update(){
-		if (!fired){
+		if (!fired) {
 			if (isSelected) {
-				Ray r = new Ray(MainPlayer.transform.position, MainPlayer.transform.rotation * Vector3.forward);
-				Vector3 rayPt = r.GetPoint(dist);
+				Ray r = new Ray (MainPlayer.transform.position, MainPlayer.transform.rotation * Vector3.forward);
+				Vector3 rayPt = r.GetPoint (dist);
 				transform.position = rayPt;	
 			}
-		}
+		} else
+			Destroy (this.gameObject, 3f);
 	}
 
   void LateUpdate() {
@@ -95,9 +96,9 @@ public class Teleport : MonoBehaviour, IGvrGazeResponder {
 		if (!fired) {
 			if (!isSelected) {
 				isSelected = !isSelected;
-				dist = Vector3.Distance (transform.position, MainPlayer.transform.position);
+				dist = 5;//Vector3.Distance (transform.position, MainPlayer.transform.position);
 			} else {
-				GetComponent<Rigidbody> ().AddForce (Vector3.forward * 10000);
+				GetComponent<Rigidbody> ().AddForce (MainPlayer.transform.forward * 1000);
 				fired = true;
 			}
 		}
