@@ -20,22 +20,23 @@ public class Teleport : MonoBehaviour, IGvrGazeResponder {
   private Vector3 startingPosition;
 	private bool isSelected = false;
 	public GameObject MainPlayer;
+	public bool fired;
 	public float dist;
 
   void Start() {
     startingPosition = transform.localPosition;
     SetGazedAt(false);
-		GameObject.Find("Main Camera");
+	GameObject.Find("Main Camera");
   }
 
 	void Update(){
-		Debug.Log (dist);
-		if (isSelected) {
-			Ray r = new Ray(MainPlayer.transform.position, MainPlayer.transform.rotation * Vector3.forward);
-			Vector3 rayPt = r.GetPoint(dist);
-			transform.position = rayPt;	
+		if (!fired){
+			if (isSelected) {
+				Ray r = new Ray(MainPlayer.transform.position, MainPlayer.transform.rotation * Vector3.forward);
+				Vector3 rayPt = r.GetPoint(dist);
+				transform.position = rayPt;	
+			}
 		}
-			
 	}
 
   void LateUpdate() {
@@ -91,11 +92,16 @@ public class Teleport : MonoBehaviour, IGvrGazeResponder {
 
   /// Called when the viewer's trigger is used, between OnGazeEnter and OnGazeExit.
   public void OnGazeTrigger() {
-		Debug.Log ("hello");
-		isSelected = !isSelected;
-		dist = Vector3.Distance (transform.position, MainPlayer.transform.position);
-		Debug.Log (isSelected);
-  }
+		if (!fired) {
+			if (!isSelected) {
+				isSelected = !isSelected;
+				dist = Vector3.Distance (transform.position, MainPlayer.transform.position);
+			} else {
+				GetComponent<Rigidbody> ().AddForce (Vector3.forward * 10000);
+				fired = true;
+			}
+		}
+	}
 		
 
   #endregion

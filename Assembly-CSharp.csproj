@@ -95,6 +95,7 @@
      <Compile Include="Assets\SpawnObjects.cs" />
      <Compile Include="Assets\SpawnPoint.cs" />
      <Compile Include="Assets\Teleport.cs" />
+     <Compile Include="Assets\ZombieMovement.cs" />
      <None Include="Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
